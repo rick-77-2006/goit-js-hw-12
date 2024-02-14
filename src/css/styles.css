@@ -92,15 +92,10 @@ button:hover {
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  position: relative;
-  border: 3px solid;
-  border-color: #de3500 #0000 #808080 #0000;
-  border-radius: 50%;
-  box-sizing: border-box;
-  animation: 1s rotate linear infinite;
+ border-top: 16px solid blue;
+ border-right: 16px solid green;
+ border-bottom: 16px solid red;
+ border-left: 16px solid pink;
 }
 
 .loader:before,
