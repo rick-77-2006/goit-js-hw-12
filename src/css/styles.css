@@ -92,43 +92,41 @@ button:hover {
 }
 
 .loader {
- /* border-top: 16px solid blue;
- border-right: 16px solid green;
- border-bottom: 16px solid red;
- border-left: 16px solid pink; */
- border: 16px solid #f3f3f3;
- border-radius: 50%;
- border-top: 16px solid blue;
- border-right: 16px solid green;
- border-bottom: 16px solid red;
- border-left: 16px solid pink;
- width: 120px;
- height: 120px;
- -webkit-animation: spin 2s linear infinite;
- animation: spin 2s linear infinite;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
-.loader:before,
-.loader:after {
-  content: '';
-  top: 0;
-  left: 0;
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
   position: absolute;
-  border: 10px solid transparent;
-  border-bottom-color: #808080;
-  transform: translate(-10px, 19px) rotate(-35deg);
+  left: 0;
+  top: 0;
+  background: #FF3D00;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
 }
 
-.loader:after {
-  border-color: #de3500 #0000 #0000 #0000;
-  transform: translate(32px, 3px) rotate(-35deg);
+.loader::before {
+  left: auto;
+  top: auto;
+  right: 0;
+  bottom: 0;
 }
 
-/* @keyframes rotate {
-  100% {
-    transform: rotate(360deg)
-  } */
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
