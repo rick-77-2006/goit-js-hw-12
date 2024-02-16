@@ -100,7 +100,7 @@ loadBtn.addEventListener("click", async () => {
 
 async function searchImages() {
   try {
-    const apiKey = '41764579-b97d65b31c0abd4efd9d4830e';
+    const apiKey = '42318404-1173ca802dc215ae825a9e5c8';
     const params = new URLSearchParams({
       key: apiKey,
       q: query,
