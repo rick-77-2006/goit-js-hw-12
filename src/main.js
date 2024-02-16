@@ -23,6 +23,11 @@ const hideLoader = () => {
   }
 };
 
+if(!query) {
+showError('empty field')
+return;
+}
+
 const showButton = () => {
   loadBtn.style.display = 'block';
 };
