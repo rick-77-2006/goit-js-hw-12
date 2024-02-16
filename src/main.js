@@ -23,11 +23,6 @@ const hideLoader = () => {
   }
 };
 
-if(!query) {
-showError('empty field')
-return;
-}
-
 const showButton = () => {
   loadBtn.style.display = 'block';
 };
@@ -82,10 +77,12 @@ loadBtn.addEventListener("click", async () => {
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
+      
     window.scrollBy({
       top: cardHeight * 2,
       behavior: 'smooth',
     });
+
     if (gallery.children.length >= totalHits || photos.hits.length < per_page) {
       iziToast.warning({
         message:
@@ -152,3 +149,8 @@ function renderImages(data) {
         lightbox.on('show.simplelightbox').refresh();
   hideLoader();
 };
+
+// if(!query) {
+// showError('empty field')
+// return;
+// }
