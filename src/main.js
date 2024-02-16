@@ -4,7 +4,6 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios'
 
-
 const form = document.querySelector(".form");
 const gallery = document.querySelector(".gallery");
 const container = document.querySelector("div");
@@ -32,12 +31,10 @@ const hideButton = () => {
   loadBtn.style.display = 'none';
 };
 
-
 let page = 1;
 let per_page = 40;
 let query = " ";
 let totalHits;
-
 
 form.addEventListener("submit", async (event) => {
   page = 1;
