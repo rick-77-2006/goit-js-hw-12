@@ -1,13 +1,13 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import axios from 'axios'
+import axios from 'axios';
 
-const form = document.querySelector(".form");
-const gallery = document.querySelector(".gallery");
-const container = document.querySelector("div");
-const searchInput = document.querySelector("input");
+const form = document.querySelector('.form');
+const gallery = document.querySelector('.gallery');
+const container = document.querySelector('div');
+const searchInput = document.querySelector('input');
 const loadBtn = document.querySelector('.btn-load');
 
 const showLoader = () => {
@@ -33,13 +33,13 @@ const hideButton = () => {
 
 let page = 1;
 let per_page = 15;
-let query = " ";
+let query = ' ';
 let totalHits;
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener('submit', async event => {
   page = 1;
   showLoader();
-  gallery.innerHTML = " ";
+  gallery.innerHTML = ' ';
   event.preventDefault();
   try {
     query = searchInput.value;
@@ -54,19 +54,20 @@ form.addEventListener("submit", async (event) => {
     if (photos.hits.length === 0) {
       hideButton();
       iziToast.error({
-        message: 'Sorry, there are no images matching <br>your search query. Please try again!</br>',
+        message:
+          'Sorry, there are no images matching <br>your search query. Please try again!</br>',
         position: 'center',
-        transitionIn: "fadeInLeft",
+        transitionIn: 'fadeInLeft',
       });
     }
   } catch (error) {
     iziToast.error({
-    title: 'Error',
-});
+      title: 'Error',
+    });
   }
 });
 
-loadBtn.addEventListener("click", async () => {
+loadBtn.addEventListener('click', async () => {
   showLoader();
   try {
     page += 1;
@@ -77,7 +78,7 @@ loadBtn.addEventListener("click", async () => {
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
-      
+
     window.scrollBy({
       top: cardHeight * 2,
       behavior: 'smooth',
@@ -88,14 +89,14 @@ loadBtn.addEventListener("click", async () => {
         message:
           'We are sorry, but you have reached the end of search results.',
         position: 'bottomCenter',
-        transitionIn: "fadeInDown",
+        transitionIn: 'fadeInDown',
       });
       hideButton();
     }
   } catch (error) {
     iziToast.error({
-    title: 'Error',
-});
+      title: 'Error',
+    });
     hideLoader();
   }
 });
@@ -106,12 +107,12 @@ async function searchImages() {
     const params = new URLSearchParams({
       key: apiKey,
       q: query,
-      image_type: "photo",
-      orientation: "horizontal",
+      image_type: 'photo',
+      orientation: 'horizontal',
       safesearch: true,
       page: page,
-      per_page: per_page
-    })
+      per_page: per_page,
+    });
     const response = await axios.get(`https://pixabay.com/api/?${params}`);
     totalHits = response.data.totalHits;
 
@@ -120,12 +121,12 @@ async function searchImages() {
     console.log(error);
     throw WebTransportError;
   }
-};
+}
 
 function renderImages(data) {
   const markup = data.hits
-          .map(data => {
-            return `
+    .map(data => {
+      return `
             <li class="gallery-item"><a href="${data.largeImageURL}">
           <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
           <p><b>Likes: </b>${data.likes}</p>
@@ -133,22 +134,23 @@ function renderImages(data) {
           <p><b>Comments: </b>${data.comments}</p>
           <p><b>Downloads: </b>${data.downloads}</p>
           </li>`;
-          }).join('');
-        
-        gallery.insertAdjacentHTML("beforeend", markup);
-          const lightbox = new SimpleLightbox('.gallery a', {
-          captions: true,
-          captionType: 'attr',
-          captionsData: 'alt',
-          captionPosition: 'bottom',
-          fadeSpeed: 150,
-          captionSelector: "img",
-          captionDelay: 250,
-        });
+    })
+    .join('');
 
-        lightbox.on('show.simplelightbox').refresh();
+  gallery.insertAdjacentHTML('beforeend', markup);
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    fadeSpeed: 150,
+    captionSelector: 'img',
+    captionDelay: 250,
+  });
+
+  lightbox.on('show.simplelightbox').refresh();
   hideLoader();
-};
+}
 
 // if(!query) {
 // showError('empty field')
