@@ -32,7 +32,7 @@ const hideButton = () => {
 };
 
 let page = 1;
-let per_page = 40;
+let per_page = 15;
 let query = " ";
 let totalHits;
 
