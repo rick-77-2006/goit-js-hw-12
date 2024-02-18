@@ -48,7 +48,7 @@ form.addEventListener("submit", async (event) => {
     form.reset();
     hideLoader();
     showButton();
-    if (photos.hits.length < 40) {
+    if (photos.hits.length < 15) {
       hideButton();
     }
     if (photos.hits.length === 0) {
