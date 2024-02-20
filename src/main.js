@@ -99,6 +99,10 @@ loadBtn.addEventListener('click', async () => {
     });
     hideLoader();
   }
+  if(!query) {
+showError('empty field')
+return;
+}
 });
 
 async function searchImages() {
@@ -152,7 +156,4 @@ function renderImages(data) {
   hideLoader();
 }
 
-// if(!query) {
-// showError('empty field')
-// return;
-// }
+
