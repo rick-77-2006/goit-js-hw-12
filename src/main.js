@@ -99,10 +99,12 @@ loadBtn.addEventListener('click', async () => {
     });
     hideLoader();
   }
+
   if(!query) {
-showError('empty field')
-return;
+    showError('empty field')
+  return;
 }
+
 });
 
 async function searchImages() {
