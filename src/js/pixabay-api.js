@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getPhotoBySearch(value, currentPage) {
     try {
-        const KEY = '42424645-ecd3f1048329df1dec069e6a8';
+        const KEY = '41764579-b97d65b31c0abd4efd9d4830e';
         const response = await axios.get('https://pixabay.com/api/', {
             params: {
                 key: KEY,
