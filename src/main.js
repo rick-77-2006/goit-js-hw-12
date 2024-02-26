@@ -42,6 +42,7 @@ form.addEventListener('submit', async event => {
   gallery.innerHTML = ' ';
   event.preventDefault();
   
+  query = e.target.elements.query.value.trim();
    if (!query) {
     showError('Empty field');
     return;
