@@ -41,6 +41,12 @@ form.addEventListener('submit', async event => {
   showLoader();
   gallery.innerHTML = ' ';
   event.preventDefault();
+  
+   if (!query) {
+    showError('Empty field');
+    return;
+  }
+  
   try {
     query = searchInput.value;
     const photos = await searchImages();
