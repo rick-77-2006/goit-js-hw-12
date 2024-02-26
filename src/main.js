@@ -42,11 +42,7 @@ form.addEventListener('submit', async event => {
   gallery.innerHTML = ' ';
   event.preventDefault();
   
-
-   if (!query) {
-    showError('Empty field');
-    return;
-  }
+  
   
   try {
     query = searchInput.value;
