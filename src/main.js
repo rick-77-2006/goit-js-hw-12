@@ -157,5 +157,3 @@ function renderImages(data) {
   lightbox.on('show.simplelightbox').refresh();
   hideLoader();
 }
-
-
