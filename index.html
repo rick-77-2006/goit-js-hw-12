@@ -4,28 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/goit-js-hw-12/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HW-12</title>
+
+    <title>Homework 12</title>
+
     
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-5401a4b0.js">
     <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-cf6910df.css">
     <link rel="stylesheet" href="/goit-js-hw-12/assets/index-64c58f85.css">
   </head>
   <body>
-  <div class="container">
-    <form id="search-form" class="search-form">
-      <input type="text" id="search" class="input-search" placeholder="Search images..." required />
-      <button type="submit" class="search-btn">Search</button>
-    </form>
-  
-    <div class="loader" >Loading images, please wait...</div>
-    <ul id="gallery-o" class="gallery-o"></ul>
-    <div class="container-loadmore">
-      <button type="submit" class="search-btn more-btn hidden">Load more</button>
+    <div>
+      <form action="" class="form">
+        <input type="text" placeholder="Search images..." />
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <ul class="gallery"></ul>
+      <button type="button" class="btn btn-load" style="display: none">
+        Load more
+      </button>
     </div>
-    <div class=" loader2 hidden">Loading images, please wait...</div>
-  </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
   </body>
 </html>
