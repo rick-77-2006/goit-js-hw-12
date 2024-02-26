@@ -51,6 +51,7 @@ form.addEventListener('submit', async event => {
     if (photos.hits.length < 15) {
       hideButton();
     }
+	     
     if (photos.hits.length === 0) {
       hideButton();
       iziToast.error({
@@ -156,4 +157,11 @@ function renderImages(data) {
 
   lightbox.on('show.simplelightbox').refresh();
   hideLoader();
+}
+
+function showError(msg) {
+  iziToast.error({
+    title: 'Error',
+    message: msg,
+  });
 }
