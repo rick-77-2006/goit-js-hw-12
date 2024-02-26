@@ -9,6 +9,7 @@ import { renderMoreImages } from './js/render-functions.js';
 const formElem = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery-o');
 const loaderElem = document.querySelector('.loader');
+const loaderElem2 = document.querySelector('.loader2');
 const loadMoreBtn = document.querySelector('.more-btn');
 let value;
 let page;
